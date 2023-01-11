@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Homework13.Oop3;
+namespace Homework13.Oop3.Data;
 
 public class Storage
 {
