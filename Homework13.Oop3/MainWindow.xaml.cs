@@ -26,4 +26,10 @@ public partial class MainWindow : Window
 
         Clients_Grid.ItemsSource = Storage.Clients;
     }
+
+    private void Clients_Grid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        var client = Clients_Grid.SelectedItem as Client;
+        Cards_Grid.ItemsSource = client?.Cards;
+    }
 }
