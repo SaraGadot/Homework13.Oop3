@@ -1,4 +1,5 @@
 ﻿using Homework13.Oop3.Data;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -31,5 +32,17 @@ public partial class MainWindow : Window
     {
         var client = Clients_Grid.SelectedItem as Client;
         Cards_Grid.ItemsSource = client?.Cards;
+    }
+
+    private void Add_Button_Click(object sender, RoutedEventArgs e)
+    {
+        var client = Clients_Grid.SelectedItem as Client;
+        client?.Cards.Add(new Card(CardName_TextBox.Text, Convert.ToDecimal(Money_TextBox.Text)));
+        
+        Cards_Grid.ItemsSource = null;
+        Cards_Grid.ItemsSource = client?.Cards;
+
+        CardName_TextBox.Text = null;
+        Money_TextBox.Text = null;
     }
 }
