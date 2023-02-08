@@ -15,6 +15,7 @@
                 <Button x:Name="Add_Button" Content="Открыть счет" Canvas.Left="395" Canvas.Top="32"  Width="82" Click="Add_Button_Click"/>
                 <TextBlock Canvas.Left="35" TextWrapping="Wrap" Text="Номер счета" Canvas.Top="17"/>
                 <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
+                <Button x:Name="DeleteCard_Button" Content="Закрыть счет" Canvas.Left="395" Canvas.Top="66" Width="82" Click="DeleteCard_Button_Click"/>
 
             </Canvas>
             <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}"/>

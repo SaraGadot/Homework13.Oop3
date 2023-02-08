@@ -45,4 +45,15 @@ public partial class MainWindow : Window
         CardName_TextBox.Text = null;
         Money_TextBox.Text = null;
     }
+
+    private void DeleteCard_Button_Click(object sender, RoutedEventArgs e)
+    {
+        var card = Cards_Grid.SelectedItem as Card;
+        var client = Clients_Grid.SelectedItem as Client;
+        client?.Cards.Remove(card);
+
+        Cards_Grid.ItemsSource = null;
+        Cards_Grid.ItemsSource = client?.Cards;
+    }
+    
 }
