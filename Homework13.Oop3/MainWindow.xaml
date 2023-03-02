@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
-            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True"/>
-            <Canvas DockPanel.Dock="Bottom" Height="100">
+            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True" SelectionMode="Single"/>
+            <Canvas x:Name="Operation_Panel" DockPanel.Dock="Bottom" Height="100">
                 <TextBox x:Name="CardName_TextBox" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
                 <TextBox x:Name="Money_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
                 <Button x:Name="Add_Button" Content="Открыть счет" Canvas.Left="395" Canvas.Top="32"  Width="82" Click="Add_Button_Click"/>

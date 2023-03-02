@@ -26,12 +26,16 @@ public partial class MainWindow : Window
             }));
 
         Clients_Grid.ItemsSource = Storage.Clients;
+
+        Operation_Panel.Visibility = Visibility.Collapsed;
     }
 
     private void Clients_Grid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         var client = Clients_Grid.SelectedItem as Client;
         Cards_Grid.ItemsSource = client?.Cards;
+
+        Operation_Panel.Visibility = client!=null ? Visibility.Visible : Visibility.Collapsed;
     }
 
     private void Add_Button_Click(object sender, RoutedEventArgs e)
