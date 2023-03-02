@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Threading;
 
 namespace Homework13.Oop3;
 
@@ -7,6 +8,11 @@ namespace Homework13.Oop3;
 /// </summary>
 public partial class App : Application
 {
+    private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        e.Handled = true;
+        MessageBox.Show(e.Exception.Message);
+    }
 }
 
 
