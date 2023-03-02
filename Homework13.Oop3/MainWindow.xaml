@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
-            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged"/>
+            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True"/>
             <Canvas DockPanel.Dock="Bottom" Height="100">
                 <TextBox x:Name="CardName_TextBox" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
                 <TextBox x:Name="Money_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
@@ -18,7 +18,7 @@
                 <Button x:Name="DeleteCard_Button" Content="Закрыть счет" Canvas.Left="395" Canvas.Top="66" Width="82" Click="DeleteCard_Button_Click"/>
 
             </Canvas>
-            <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
         </DockPanel>
     </Grid>
 </Window>
