@@ -16,4 +16,8 @@ public class Client
 
     }
 
+    public override string ToString()
+    {
+        return Name;
+    }
 }

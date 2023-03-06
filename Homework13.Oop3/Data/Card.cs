@@ -12,4 +12,8 @@ public class Card
 
     }
 
+    public override string ToString()
+    {
+        return Name;
+    }
 }
