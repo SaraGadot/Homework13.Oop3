@@ -26,7 +26,9 @@ public partial class MainWindow : Window
             }));
 
         Clients_Grid.ItemsSource = Storage.Clients;
+        From_Client_Combo.ItemsSource = Storage.Clients;
         To_Client_Combo.ItemsSource = Storage.Clients;
+
 
         Operation_Panel.Visibility = Visibility.Collapsed;
     }
@@ -60,7 +62,11 @@ public partial class MainWindow : Window
         Cards_Grid.ItemsSource = null;
         Cards_Grid.ItemsSource = client?.Cards;
     }
-
+    private void From_Client_Combo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        var client = From_Client_Combo.SelectedItem as Client;
+        From_Card_Combo.ItemsSource = client?.Cards;
+    }
     private void To_Client_Combo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         var client = To_Client_Combo.SelectedItem as Client;
@@ -69,10 +75,12 @@ public partial class MainWindow : Window
 
     private void Transfer_Button_Click(object sender, RoutedEventArgs e)
     {
-        var fromCard = Cards_Grid.SelectedItem as Card;
+        var fromCard = From_Card_Combo.SelectedItem as Card;
         var toCard = To_Card_Combo.SelectedItem as Card;
         var money = Convert.ToDecimal(Money_TextBox.Text);
         fromCard.Money = fromCard.Money - money;
         toCard.Money = toCard.Money + money;
     }
+
+   
 }

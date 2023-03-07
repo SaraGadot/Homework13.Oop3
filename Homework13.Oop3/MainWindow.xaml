@@ -16,9 +16,11 @@
                 <TextBlock Canvas.Left="35" TextWrapping="Wrap" Text="Номер счета" Canvas.Top="17"/>
                 <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
                 <Button x:Name="DeleteCard_Button" Content="Закрыть счет" Canvas.Left="395" Canvas.Top="66" Width="82" Click="DeleteCard_Button_Click"/>
-                <ComboBox x:Name="To_Client_Combo" Canvas.Left="35" Canvas.Top="55" Width="120" SelectionChanged="To_Client_Combo_SelectionChanged"/>
-                <ComboBox x:Name="To_Card_Combo" Canvas.Left="35" Canvas.Top="83" Width="120"/>
+                <ComboBox x:Name="To_Client_Combo" Canvas.Left="195" Canvas.Top="60" Width="120" SelectionChanged="To_Client_Combo_SelectionChanged"/>
+                <ComboBox x:Name="To_Card_Combo" Canvas.Left="195" Canvas.Top="104" Width="120"/>
                 <Button x:Name="Transfer_Button" Content="Перевести" Canvas.Left="395" Canvas.Top="100" Width="82" Click="Transfer_Button_Click"/>
+                <ComboBox x:Name="From_Client_Combo" Canvas.Left="35" Canvas.Top="60" Width="120" SelectionChanged="From_Client_Combo_SelectionChanged" />
+                <ComboBox x:Name="From_Card_Combo" Canvas.Left="35" Canvas.Top="104" Width="120"/>
 
             </Canvas>
             <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
