@@ -78,8 +78,7 @@ public partial class MainWindow : Window
         var fromCard = From_Card_Combo.SelectedItem as Card;
         var toCard = To_Card_Combo.SelectedItem as Card;
         var money = Convert.ToDecimal(Money_TextBox.Text);
-        fromCard.Money = fromCard.Money - money;
-        toCard.Money = toCard.Money + money;
+        CardManager.Transfer(fromCard, toCard, money);
     }
 
    
