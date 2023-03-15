@@ -15,14 +15,14 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        Storage.Clients.Add(new Client("Петя", new List<Card>() 
+        Storage.Clients.Add(new Client("Петя", new List<Card<decimal>>() 
             {
-                new Card ("1236 4598 5896 4587", 1000), 
-                new Card ("1236 4785 5896 4758")
+                new Card<decimal> ("1236 4598 5896 4587", 1000), 
+                new Card<decimal> ("1236 4785 5896 4758")
             }));
-        Storage.Clients.Add(new Client("Вася", new List<Card>()
+        Storage.Clients.Add(new Client("Вася", new List<Card<decimal>>()
             {
-                new Card ("1245 8965 1265 4589", 5_000_000)
+                new Card<decimal> ("1245 8965 1265 4589", 5_000_000)
             }));
 
         Clients_Grid.ItemsSource = Storage.Clients;
@@ -44,7 +44,7 @@ public partial class MainWindow : Window
     private void Add_Button_Click(object sender, RoutedEventArgs e)
     {
         var client = Clients_Grid.SelectedItem as Client;
-        client?.Cards.Add(new Card(CardName_TextBox.Text, Convert.ToDecimal(Money_TextBox.Text)));
+        client?.Cards.Add(new Card<decimal>(CardName_TextBox.Text, Convert.ToDecimal(Money_TextBox.Text)));
         
         Cards_Grid.ItemsSource = null;
         Cards_Grid.ItemsSource = client?.Cards;
@@ -55,7 +55,7 @@ public partial class MainWindow : Window
 
     private void DeleteCard_Button_Click(object sender, RoutedEventArgs e)
     {
-        var card = Cards_Grid.SelectedItem as Card;
+        var card = Cards_Grid.SelectedItem as Card<decimal>;
         var client = Clients_Grid.SelectedItem as Client;
         client?.Cards.Remove(card);
 
@@ -75,8 +75,8 @@ public partial class MainWindow : Window
 
     private void Transfer_Button_Click(object sender, RoutedEventArgs e)
     {
-        var fromCard = From_Card_Combo.SelectedItem as Card;
-        var toCard = To_Card_Combo.SelectedItem as Card;
+        var fromCard = From_Card_Combo.SelectedItem as Card<decimal>;
+        var toCard = To_Card_Combo.SelectedItem as Card<decimal>;
         var money = Convert.ToDecimal(Money_TextBox.Text);
         CardManager.Transfer(fromCard, toCard, money);
     }
