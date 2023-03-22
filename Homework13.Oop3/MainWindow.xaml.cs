@@ -44,8 +44,10 @@ public partial class MainWindow : Window
     private void Add_Button_Click(object sender, RoutedEventArgs e)
     {
         var client = Clients_Grid.SelectedItem as Client;
-        client?.Cards.Add(new Card<decimal>(CardName_TextBox.Text, Convert.ToDecimal(Money_TextBox.Text)));
-        
+        var cardName = CardName_TextBox.Text;
+        var money = Convert.ToDecimal(Money_TextBox.Text);
+        CardManager.OpenCard(client, cardName, money);
+
         Cards_Grid.ItemsSource = null;
         Cards_Grid.ItemsSource = client?.Cards;
 

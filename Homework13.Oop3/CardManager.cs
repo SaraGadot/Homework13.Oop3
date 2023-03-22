@@ -3,6 +3,14 @@
 namespace Homework13.Oop3;
 internal class CardManager
 {
+    public static Card<decimal> OpenCard(Client client, string cardName, decimal money)
+    {
+        var card = new Card<decimal>(cardName, money);
+        client?.Cards.Add(card);
+        return card;
+    }
+
+
     public static void Transfer<TMoney>(Card<TMoney> fromCard, Card<TMoney> toCard, TMoney money) where TMoney:struct
     {
         fromCard.Money = Minus(fromCard.Money, money);
@@ -17,5 +25,7 @@ internal class CardManager
     {
         return (dynamic)a + b;
     } 
+
+
 }
 
