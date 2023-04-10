@@ -59,7 +59,13 @@ public partial class MainWindow : Window
     {
         var card = Cards_Grid.SelectedItem as Card<decimal>;
         var client = Clients_Grid.SelectedItem as Client;
-        client?.Cards.Remove(card);
+        
+        if (card == null)
+        {
+            return;
+        }
+
+        CardManager.CloseCard(client, card);
 
         Cards_Grid.ItemsSource = null;
         Cards_Grid.ItemsSource = client?.Cards;

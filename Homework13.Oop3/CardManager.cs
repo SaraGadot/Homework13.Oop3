@@ -10,6 +10,12 @@ internal class CardManager
         return card;
     }
 
+    public static void CloseCard(Client? client, Card<decimal> card)
+    {
+        client?.Cards.Remove(card);
+
+    }
+
 
     public static void Transfer<TMoney>(Card<TMoney> fromCard, Card<TMoney> toCard, TMoney money) where TMoney:struct
     {
