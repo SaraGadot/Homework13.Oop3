@@ -30,7 +30,7 @@ public partial class MainWindow : Window
         To_Client_Combo.ItemsSource = Storage.Clients;
 
 
-        Operation_Panel.Visibility = Visibility.Collapsed;
+        
     }
 
     private void Clients_Grid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -38,7 +38,7 @@ public partial class MainWindow : Window
         var client = Clients_Grid.SelectedItem as Client;
         Cards_Grid.ItemsSource = client?.Cards;
 
-        Operation_Panel.Visibility = client!=null ? Visibility.Visible : Visibility.Collapsed;
+        
     }
 
     private void Add_Button_Click(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ public partial class MainWindow : Window
     {
         var fromCard = From_Card_Combo.SelectedItem as Card<decimal>;
         var toCard = To_Card_Combo.SelectedItem as Card<decimal>;
-        var money = Convert.ToDecimal(Money_TextBox.Text);
+        var money = Convert.ToDecimal(TransferMoney_TextBox.Text);
         CardManager.Transfer(fromCard, toCard, money);
     }
 

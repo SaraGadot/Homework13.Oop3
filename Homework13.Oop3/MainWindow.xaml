@@ -8,21 +8,36 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
-            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True" SelectionMode="Single"/>
-            <Canvas x:Name="Operation_Panel" DockPanel.Dock="Bottom" Height="166">
-                <TextBox x:Name="CardName_TextBox" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
-                <TextBox x:Name="Money_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
-                <Button x:Name="Add_Button" Content="Открыть счет" Canvas.Left="395" Canvas.Top="32"  Width="82" Click="Add_Button_Click"/>
-                <TextBlock Canvas.Left="35" TextWrapping="Wrap" Text="Номер счета" Canvas.Top="17"/>
-                <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
-                <Button x:Name="DeleteCard_Button" Content="Закрыть счет" Canvas.Left="395" Canvas.Top="66" Width="82" Click="DeleteCard_Button_Click"/>
-                <ComboBox x:Name="To_Client_Combo" Canvas.Left="195" Canvas.Top="60" Width="120" SelectionChanged="To_Client_Combo_SelectionChanged"/>
-                <ComboBox x:Name="To_Card_Combo" Canvas.Left="195" Canvas.Top="104" Width="120"/>
-                <Button x:Name="Transfer_Button" Content="Перевести" Canvas.Left="395" Canvas.Top="100" Width="82" Click="Transfer_Button_Click"/>
-                <ComboBox x:Name="From_Client_Combo" Canvas.Left="35" Canvas.Top="60" Width="120" SelectionChanged="From_Client_Combo_SelectionChanged" />
-                <ComboBox x:Name="From_Card_Combo" Canvas.Left="35" Canvas.Top="104" Width="120"/>
+            <TabControl DockPanel.Dock="Bottom" Height="166">
+                <TabItem Header="Открытие счета">
+                    <Canvas Background="#FFE5E5E5">
+                        <TextBox x:Name="CardName_TextBox" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
+                        <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
+                        <TextBox x:Name="Money_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
+                        <Button x:Name="Add_Button" Content="Открыть счет" Canvas.Left="395" Canvas.Top="32"  Width="82" Click="Add_Button_Click"/>
+                        <TextBlock Canvas.Left="35" TextWrapping="Wrap" Text="Номер счета" Canvas.Top="17"/>
 
-            </Canvas>
+                    </Canvas>
+                </TabItem>
+                <TabItem Header="Закрытие счета">
+                    <Canvas Background="#FFE5E5E5">
+                        <Button x:Name="DeleteCard_Button" Content="Закрыть счет" Canvas.Left="395" Canvas.Top="66" Width="82" Click="DeleteCard_Button_Click"/>
+                    </Canvas>
+                </TabItem>
+                <TabItem Header="Перевод между счетами">
+                    <Canvas Background="#FFE5E5E5">
+                        <ComboBox x:Name="To_Client_Combo" Canvas.Left="195" Canvas.Top="60" Width="120" SelectionChanged="To_Client_Combo_SelectionChanged"/>
+                        <ComboBox x:Name="To_Card_Combo" Canvas.Left="195" Canvas.Top="104" Width="120"/>
+                        <Button x:Name="Transfer_Button" Content="Перевести" Canvas.Left="395" Canvas.Top="100" Width="82" Click="Transfer_Button_Click"/>
+                        <ComboBox x:Name="From_Client_Combo" Canvas.Left="35" Canvas.Top="60" Width="120" SelectionChanged="From_Client_Combo_SelectionChanged" />
+                        <ComboBox x:Name="From_Card_Combo" Canvas.Left="35" Canvas.Top="104" Width="120"/>
+                        <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
+                        <TextBox x:Name="TransferMoney_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
+
+                    </Canvas>
+                </TabItem>
+            </TabControl>
+            <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True" SelectionMode="Single"/>
             <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
         </DockPanel>
     </Grid>
