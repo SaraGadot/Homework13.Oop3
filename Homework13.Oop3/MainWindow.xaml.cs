@@ -87,7 +87,18 @@ public partial class MainWindow : Window
         var toCard = To_Card_Combo.SelectedItem as Card<decimal>;
         var money = Convert.ToDecimal(TransferMoney_TextBox.Text);
         CardManager.Transfer(fromCard, toCard, money);
+
+        var client = Clients_Grid.SelectedItem as Client;
+        Cards_Grid.ItemsSource = null;
+        Cards_Grid.ItemsSource = client?.Cards;
+
+        From_Client_Combo.SelectedItem = null;
+        To_Client_Combo.SelectedItem = null;
+        From_Card_Combo.SelectedItem = null;
+        To_Card_Combo.SelectedItem = null;
+        TransferMoney_TextBox.Text = null;
+
     }
 
-   
+
 }
