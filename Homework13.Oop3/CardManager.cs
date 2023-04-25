@@ -3,21 +3,21 @@
 namespace Homework13.Oop3;
 internal class CardManager
 {
-    public static Card<decimal> OpenCard(Client client, string cardName, decimal money)
+    public static DepositCard<decimal> OpenCard(Client client, string cardName, decimal money)
     {
-        var card = new Card<decimal>(cardName, money);
+        var card = new DepositCard<decimal>(cardName, money);
         client?.Cards.Add(card);
         return card;
     }
 
-    public static void CloseCard(Client? client, Card<decimal> card)
+    public static void CloseCard(Client? client, DepositCard<decimal> card)
     {
         client?.Cards.Remove(card);
 
     }
 
 
-    public static void Transfer<TMoney>(Card<TMoney> fromCard, Card<TMoney> toCard, TMoney money) where TMoney:struct
+    public static void Transfer<TMoney>(DepositCard<TMoney> fromCard, DepositCard<TMoney> toCard, TMoney money) where TMoney:struct
     {
         fromCard.Money = Minus(fromCard.Money, money);
         toCard.Money = Plus(toCard.Money, money);

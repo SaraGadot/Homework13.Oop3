@@ -7,9 +7,9 @@ public class Client
 {
    
     public string Name { get; set; }
-    public List<Card<decimal>> Cards { get; set; } = new List<Card<decimal>>();
+    public List<DepositCard<decimal>> Cards { get; set; } = new List<DepositCard<decimal>>();
 
-    public Client (string name, List<Card<decimal>> cards)
+    public Client (string name, List<DepositCard<decimal>> cards)
     {
         Name = name;
         Cards = cards;
