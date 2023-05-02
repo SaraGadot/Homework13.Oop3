@@ -1,4 +1,5 @@
 ﻿using Homework13.Oop3.Data;
+using Homework13.Oop3.Interfaces;
 using System.Collections.Generic;
 
 namespace Homework13.Oop3;
@@ -7,9 +8,9 @@ public class Client
 {
    
     public string Name { get; set; }
-    public List<DepositCard<decimal>> Cards { get; set; } = new List<DepositCard<decimal>>();
+    public List<ICard<decimal>> Cards { get; set; } = new List<ICard<decimal>>();
 
-    public Client (string name, List<DepositCard<decimal>> cards)
+    public Client (string name, List<ICard<decimal>> cards)
     {
         Name = name;
         Cards = cards;

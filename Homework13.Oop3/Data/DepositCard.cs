@@ -1,6 +1,8 @@
-﻿namespace Homework13.Oop3.Data;
+﻿using Homework13.Oop3.Interfaces;
 
-public class DepositCard<TMoney> where TMoney: struct
+namespace Homework13.Oop3.Data;
+
+public class DepositCard<TMoney>: ICard<TMoney> where TMoney: struct
 {
     public string Name { get; set; }
     public TMoney Money { get; set; }
