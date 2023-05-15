@@ -6,7 +6,7 @@ internal class CardManager
 {
     public static ICard<decimal> OpenCard(Client client, string cardName, decimal money)
     {
-        var card = new DepositCard<decimal>(cardName, money);
+        var card = new CreditCard<decimal>(cardName, money);
         client?.Cards.Add(card);
         return card;
     }
