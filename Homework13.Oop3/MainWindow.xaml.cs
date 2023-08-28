@@ -58,7 +58,7 @@ public partial class MainWindow : Window
 
     private void DeleteCard_Button_Click(object sender, RoutedEventArgs e)
     {
-        var card = Cards_Grid.SelectedItem as DepositCard<decimal>;
+        var card = Cards_Grid.SelectedItem as ICard<decimal>;
         var client = Clients_Grid.SelectedItem as Client;
         
         if (card == null)
@@ -84,8 +84,8 @@ public partial class MainWindow : Window
 
     private void Transfer_Button_Click(object sender, RoutedEventArgs e)
     {
-        var fromCard = From_Card_Combo.SelectedItem as DepositCard<decimal>;
-        var toCard = To_Card_Combo.SelectedItem as DepositCard<decimal>;
+        var fromCard = From_Card_Combo.SelectedItem as ICard<decimal>;
+        var toCard = To_Card_Combo.SelectedItem as ICard<decimal>;
         var money = Convert.ToDecimal(TransferMoney_TextBox.Text);
         CardManager.Transfer(fromCard, toCard, money);
 
@@ -101,5 +101,16 @@ public partial class MainWindow : Window
 
     }
 
+    private void PutMoney_Button_Click(object sender, RoutedEventArgs e)
+    {
+        var card = Cards_Grid.SelectedItem as ICard<decimal>;
+        var money = Convert.ToDecimal(PutMoney_TextBox.Text);
+        card.Money = card.Money + money;
 
+        var client = Clients_Grid.SelectedItem as Client;
+        Cards_Grid.ItemsSource = null;
+        Cards_Grid.ItemsSource = client?.Cards;
+
+        PutMoney_TextBox.Text = null;
+    }
 }

@@ -36,6 +36,14 @@
 
                     </Canvas>
                 </TabItem>
+                <TabItem Header="Пополнить счет">
+                    <Canvas Background="#FFE5E5E5">
+                        <TextBlock Canvas.Left="195" TextWrapping="Wrap" Text="Сумма" Canvas.Top="17"/>
+                        <TextBox x:Name="PutMoney_TextBox" Canvas.Left="195" TextWrapping="Wrap" Canvas.Top="32" Width="120"/>
+                        <Button x:Name="PutMoney_Button" Content="Пополнить счет" Canvas.Left="395" Canvas.Top="32"  Width="82" Click="PutMoney_Button_Click" />
+
+                    </Canvas>
+                </TabItem>
             </TabControl>
             <DataGrid x:Name="Clients_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" DockPanel.Dock="Left" Width="200" SelectionChanged="Clients_Grid_SelectionChanged" IsReadOnly="True" SelectionMode="Single"/>
             <DataGrid x:Name="Cards_Grid" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
