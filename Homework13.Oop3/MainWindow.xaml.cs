@@ -105,7 +105,7 @@ public partial class MainWindow : Window
     {
         var card = Cards_Grid.SelectedItem as ICard<decimal>;
         var money = Convert.ToDecimal(PutMoney_TextBox.Text);
-        card.Money = card.Money + money;
+        card.ChangeMoney(money);
 
         var client = Clients_Grid.SelectedItem as Client;
         Cards_Grid.ItemsSource = null;

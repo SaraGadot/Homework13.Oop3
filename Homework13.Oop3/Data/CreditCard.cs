@@ -7,7 +7,7 @@ public class CreditCard<TMoney>: ICard<TMoney> where TMoney: struct
     public string Name { get; set; }
 
     public CardKind CardKind { get; set; } = CardKind.Credit;
-    public TMoney Money { get; set; }
+    public TMoney Money { get; private set; }
 
     public CreditCard(string name, TMoney money)
     {
@@ -20,4 +20,8 @@ public class CreditCard<TMoney>: ICard<TMoney> where TMoney: struct
         return Name;
     }
 
+    public void ChangeMoney(TMoney money)
+    {
+        Money = (dynamic)Money + money;
+    }
 }

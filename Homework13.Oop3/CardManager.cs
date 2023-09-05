@@ -20,8 +20,8 @@ internal class CardManager
 
     public static void Transfer<TMoney>(ICard<TMoney> fromCard,ICard<TMoney> toCard, TMoney money) where TMoney:struct
     {
-        fromCard.Money = Minus(fromCard.Money, money);
-        toCard.Money = Plus(toCard.Money, money);
+        fromCard.ChangeMoney(-(dynamic)money);
+        toCard.ChangeMoney(money);
     }
 
     private static TNumber Minus<TNumber>(TNumber a, TNumber b)

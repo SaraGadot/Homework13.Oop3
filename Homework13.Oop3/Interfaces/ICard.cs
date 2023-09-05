@@ -7,6 +7,8 @@ public interface ICard<TMoney> where TMoney : struct
     string Name { get; set; }
 
     CardKind CardKind { get; set; }
-    TMoney Money { get; set; }
+    TMoney Money { get; }
+
+    void ChangeMoney(TMoney money);
 
 }
